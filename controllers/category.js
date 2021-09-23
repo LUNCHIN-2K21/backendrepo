@@ -9,6 +9,7 @@ exports.createCategory = async (req,res) => {
      res.json(Category)
 }
 exports.showCategories = async (req,res) => {
-    const category = await Category.find({}).exec()
+   
+    const category = await Category.find({})
     res.json(category)
 }

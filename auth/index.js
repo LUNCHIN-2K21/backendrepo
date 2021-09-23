@@ -123,6 +123,7 @@ app.use(
       var myobj = { 'email':email, 'username': username,
       'password':password,'phone':phone
     };
+
       dbo.collection("users").insertOne(myobj, function(err, _res) {
         if (err) throw err;
         console.log("1 user verified");
@@ -130,6 +131,7 @@ app.use(
       });
     });
       res.sendFile(__dirname + "/dash.html");
+  
     } else {
       console.log("Wrong password");
       res.redirect("/");

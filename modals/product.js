@@ -2,7 +2,11 @@ const mongoose = require('mongoose')
 const Category = require('./category')
 const { ObjectId } = mongoose.Schema;
 const productSchema = new mongoose.Schema({
-
+    
+    category : {
+        type: ObjectId,
+        ref: 'Category'
+    },
     name : {
         type: String,
         required:true,
@@ -16,11 +20,22 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required :true,
     },
-    category : {
-        type: ObjectId,
-        ref: 'Catagory'
+    qtyAvailable : {
+        type: Number,
+        required :true, 
+    },
+    availableDays : {
+        type : [String]
+    },
+    deliveryTime : {
+        type: Number
 
-    }
+    },
+    noticePeriod : {
+        type: String
+    },
+    
+
 })
 
 module.exports = mongoose.model('Product',productSchema)
