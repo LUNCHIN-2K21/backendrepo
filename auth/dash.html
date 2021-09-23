@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<style>
+    
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        font-weight: 800;
+    }
+    .container{
+        height: 100vh;
+        align-items: center;
+    }
+    .outer{
+        display: flex;
+        justify-content: center;
+        margin-top: 150px;
+    }
+    .outer form{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        border: 3px solid #cdcdcd;
+        padding: 20px;
+    }
+    .outer form div{
+        display: flex;
+        flex-direction: column;
+        padding: 3px;
+    }
+    .outer form div input{
+        margin: 3px;
+        padding: 5px;
+        width: 250px;
+        font-weight: 800;
+        outline: none;
+        border: 3px solid #cdcdcd;
+        border-radius: 5px;
+    }
+    .outer form div input:hover{
+        border: 3px solid #767676;
+    }
+    .outer form div input:focus{
+        outline: none;
+        border: 3px solid #767676;
+    }
+    .password{
+        margin-bottom: 10px;
+    }
+    .submit{
+        margin: auto;
+        /* margin: 5px; */
+        padding: 5px;
+        width: 100px;
+        border-radius: 15px;
+        outline: none;
+        border: 3px solid #cdcdcd;
+    }
+    .submit:hover{
+        border: 3px solid #767676;
+        transform: scale(1.05);
+    }
+    .submit:focus{
+        border: 3px solid #767676;
+    }
+</style>
+<body>
+    <h1>Dashboard</h1>
+    <div class="container">
+        <div class="outer">
+            <form action="" method="POST" autocomplete="off">
+                <div>
+                    <label for="username">User name</label>
+                    <input type="text" id="username" autocomplete="false" name="username" value="">
+                </div>
+                <div>
+                    <label for="email">Mail-id</label>
+                    <input type="email" id="email" name="email" value="5000">
+                </div>
+                <div>
+                    <label for="mnumber">Mobile Number</label>
+                    <input type="text" id="mnumber" name="mnumber" value="">
+                </div>
+                <div class="password">
+                    <label for="Password">Confirm Password</label>
+                    <input type="password" id="Password" name="password" value="" >
+                </div>
+                <input type="submit" value="Update" class="submit">
+              </form>
+        </div>
+    </div>
+</body>
+</html>

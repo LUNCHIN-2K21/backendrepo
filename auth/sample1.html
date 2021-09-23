@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample App</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+  />
+</head>
+<!--CSS starts-->
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: white;
+}
+.outer{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    align-items: center;
+}
+.inner{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border:3px solid #cdcdcd;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 60px;
+}
+.inner form{
+    margin: auto;
+    padding-top: 10px;
+    height: 510px;
+    width: 400px;
+    background-color:white;
+    border-radius: 10px;
+}
+.inner h1{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: black;
+    opacity: 1;
+    background: transparent;
+}
+.inner label{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background: transparent;
+}
+.inner label input{
+    padding: 5px;
+    border-radius: 5px;
+    width: 280px;
+    height: 20px;
+    color: black;
+    opacity: 0.8;
+    font-weight: 800;
+    border:3px solid #cdcdcd;
+    outline: none;
+    opacity: 1;
+    background: white;
+}
+.inner label input::placeholder{
+    color:#7f8286;
+    font-weight: 800;
+}
+.inner label input:hover{
+    border:3px solid #767676;
+}
+#mob{
+    margin-top: 30px;
+    margin-bottom: -11px;
+}
+.inner label button{
+    padding: 7px;
+    width: 130px;
+    border-radius: 25px;
+    border:3px solid #cdcdcd;
+    font-weight: 800;
+    color: black;
+    display: block;
+    margin: auto;
+    outline: none;
+    opacity: 1; 
+    background-color: white;
+}
+.inner label button:hover{
+    background: #eeeeee;
+    border:3px solid #767676;
+    transform: scale(1.05);
+}
+.inner label a{
+    margin: auto;
+    color: black;
+    font-weight: 800;
+    opacity: 1;
+    background: transparent;
+    text-decoration: none;
+}
+.inner label a:hover{
+    opacity: 0.7;
+}
+#signin{
+    margin-top: 50px;
+}
+.icon{
+    float: right;
+    margin-top: -27px;
+    margin-left: 265px;
+    color: black;
+}
+#showPassword,
+.inner label span {
+    display: flex;
+    flex-direction: row;
+    background: transparent;
+}
+.inner label .far{
+    cursor: pointer;
+}
+#mobile-num{
+    display: inline-block;
+}
+#getotp{
+    display: inline-block;
+    position: relative;
+    float: right;
+    top: -27px;
+    right: -235px;
+    font-size: x-small;
+    color: dodgerblue;
+}
+#getotp:hover{
+    transform: scale(1.02)
+}
+.getotp{
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important; 
+    width: auto !important;
+    font-weight: normal !important;
+}
+.getotp:hover{
+    cursor: pointer;
+}
+</style>
+
+<!--HTML starts-->
+<body>
+    
+    <div class="outer">
+        <div class="inner">
+            <form action="/" method="post">
+                <h1>User Login</h1>                   
+                <label for="">
+                    <input type="text" name="username" placeholder="Enter Username" >
+                </label>
+                <label for="">
+                    <input type="email" name="email" placeholder="Enter mail id">
+                </label>
+                <label for="" id="passip">
+                    <input type="password" name="password" placeholder="Password" id="Password" >
+                    <span class="icon" onmouseover="mouseoverPass()" onmouseout="mouseoutPass()" style="cursor: pointer;">
+                        <i class="far fa-eye-slash" id="visibility"></i></span>
+                    <!--javascript for visibility-->
+                    <script>
+                        function mouseoverPass(){
+                            var x=document.getElementById("Password")
+                            var y=document.getElementById("visibility")
+                            x.type="text"
+                            y.classList="far fa-eye"
+                        }
+                        function mouseoutPass(){
+                            var x=document.getElementById("Password")
+                            var y=document.getElementById("visibility")
+                            x.type="password"
+                            y.classList="far fa-eye-slash"
+                            src="./visibility_off_black_24dp.svg"
+                        }
+                    </script>
+                </label>  
+                <label for="" id="mob">
+                    <input type="text" placeholder="Mobile Number" id="mobile-num" name="mobilenum">
+                    <span id="getotp" ><button type="submit" class="getotp" formaction="/getotp">Get OTP</button></span>
+                </label>
+                <label for="">
+                    <input type="text" name="totp"placeholder="Enter OTP">
+                </label>
+                <label for="">
+                    <button id="button" type="submit" formaction="/totp-validate">Submit</button>
+                </label>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
