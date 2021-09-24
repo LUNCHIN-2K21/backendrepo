@@ -1,30 +1,24 @@
 const mongoose = require("mongoose");
+const passportLocalMongoose = require('passport-local-mongoose')
 const { ObjectId } = mongoose.Schema
 const product = require('./product')
 userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    trim:true
-  },
   email: {
     type: String,
     required: true,
-    trim:true
-  },
-  password : {
-    type: Number,
-    required:true
-  },
+    unique: true
+  }
+,
   phone : {
       type: Number,
-      required: true
+      required: true,
+      unique: true
 
-  },
-  orders: {
-      type: [ObjectId],
-      ref: 'product'
   }
+  // orders: {
+  //     type: [ObjectId],
+  //     ref: 'product'
+  // }
 });
-
-module.exports = mongoose.model("Catagory", catagorySchema);
+userSchema.plugin(passportLocalMongoose)
+module.exports = mongoose.model("User", userSchema);
